@@ -1,0 +1,93 @@
+/* Structure globale de la page */
+.article-page {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    max-width: 900px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* En-tête de l'article */
+  .article-page__header {
+    position: relative;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .article-page__image {
+    width: auto;
+    height: 30%;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .article-page__category {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 20px;
+  }
+  
+  .article-page__like {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .article-page__like:hover {
+    color: red;
+  }
+  
+  .article-page__like:focus {
+    outline: none;
+  }
+  
+  /* Détails de l'article */
+  .article-page__details {
+    padding: 20px;
+    background-color: white;
+  }
+  
+  .article-page__title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .article-page__date {
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .article-page__like-count {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-top: 10px;
+  }
+  
+  /* Contenu de l'article */
+  .article-page__content {
+    padding: 20px;
+    background-color: white;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  .article-page__content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  

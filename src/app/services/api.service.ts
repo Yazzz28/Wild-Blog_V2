@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root',  // Le service est disponible globalement
+  providedIn: 'root',
 })
 export class ApiService {
   articles: Article[] = [];
