@@ -1,10 +1,12 @@
 <h2>Articles Populaires</h2>
 <div class="main-container">
-  for (article of articles;) {
-    @if (articles.isPublished) {
-  <app-article-thumbnail (article)="article" (notifyLike)="handleLike()"></app-article-thumbnail>
-    }
-  } @empty {
-  <p>Aucun article publié pour le moment</p>
+  @for (article of articles; track article.id) { @if (article.isPublished) {
+  <app-article-thumbnail
+    [article]="article"
+    (notifyLike)="handleLike(article)"
+  ></app-article-thumbnail>
+  } }
+  @if (articles.length === 0) {
+  <p>Aucun article n'est disponible</p>
   }
 </div>

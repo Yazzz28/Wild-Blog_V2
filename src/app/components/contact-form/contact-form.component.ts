@@ -1,24 +1,34 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { Message } from '../../models/message.model';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-contact-form',
   standalone: true,
-  imports: [FormsModule],
+  selector: 'app-contact-form',
   templateUrl: './contact-form.component.html',
-  styleUrl: './contact-form.component.scss'
+  styleUrls: ['./contact-form.component.scss'],
+  imports: [ReactiveFormsModule]
 })
 export class ContactFormComponent {
+  contactForm: FormGroup;
 
-  newMessage: Message = {
-    lastname: "",
-    firstname: "",
-    email: "",
-    content: ""
-  };
+  constructor(private readonly fb: FormBuilder) {
+    this.contactForm = this.fb.group({
+      lastname: ['', [Validators.required, Validators.minLength(2)]],
+      firstname: ['', [Validators.required, Validators.minLength(2)]],
+      email: ['', [Validators.required, Validators.email]],
+      content: ['', [Validators.required, Validators.minLength(20)]],
+    });
+  }
 
   onSubmit(): void {
-    console.log(newMessage.value);
+    if (this.contactForm.valid) {
+      console.log('Formulaire soumis', this.contactForm.value);
+    } else {
+      console.log('Le formulaire est invalide');
+    }
+  }
+
+  onReset(): void {
+    this.contactForm.reset();
   }
 }
