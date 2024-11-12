@@ -1,28 +1,32 @@
-<div class="article-page">
+<div *ngIf="article$ | async as article; else loading">
+  <div class="article-page">
     <div class="article-page__header">
-      <img [src]="article$.image" [alt]="article$.title" class="article-page__image" />
-      <span class="article-page__category">{{ article$.categoryName }}</span>
-      <span
+      <img [src]="article.image" [alt]="article.title" class="article-page__image" />
+      <span class="article-page__category">{{ article.categoryName }}</span>
+      <button
         class="article-page__like"
         (click)="handleLike()"
-        (keydown)="handleLike()"
       >
-        {{ article$.isLiked ? "♥" : "♡" }}
-      </span>
+        {{ article.isLiked ? "♥" : "♡" }}
+      </button>
     </div>
   
     <div class="article-page__details">
-      <h1 class="article-page__title">{{ article$.title }}</h1>
+      <h1 class="article-page__title">{{ article.title }}</h1>
       <p class="article-page__date">
-        Published on {{ article$.createdAt | date: 'dd/MM/yyyy' }}
+        Published on {{ article.createdAt | date: 'dd/MM/yyyy' }}
       </p>
       <p class="article-page__like-count">
-        {{ article$.likeCount }} {{ article$.likeCount === 1 ? 'like' : 'likes' }}
+        {{ article.likeCount }} {{ article.likeCount === 1 ? 'like' : 'likes' }}
       </p>
     </div>
   
     <div class="article-page__content">
-      <p>{{ article$.content }}</p>
+      <p>{{ article.content }}</p>
     </div>
   </div>
-  
+</div>
+
+<ng-template #loading>
+  <p>Chargement...</p>
+</ng-template>

@@ -26,4 +26,8 @@ export class ApiService {
   public getArticleById$(id: number): Observable<Article> {
     return this.http.get<Article>(`${this.apiUrl}/${id}`);
   }
+
+  public updateArticle$(article: Article): Observable<Article> {
+    return this.http.put<Article>(`${this.apiUrl}/${article.id}`, article);
+  }
 }
