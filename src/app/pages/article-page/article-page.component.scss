@@ -1,0 +1,93 @@
+// Color Variables
+$primary-color: #00796b;
+$secondary-color: #e91e63;
+$text-color: #333;
+$background-color: #f8f9fa;
+$border-radius: 8px;
+
+.article-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: $background-color;
+  border-radius: $border-radius;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  color: $text-color;
+  font-family: Arial, sans-serif;
+
+  &__header {
+    position: relative;
+    text-align: center;
+    margin-bottom: 2rem;
+
+    &__image {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: $border-radius;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    &__category {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: $primary-color;
+      color: white;
+      padding: 5px 10px;
+      font-size: 0.85rem;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    &__like {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 1.8rem;
+      color: $secondary-color;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+
+      &:hover,
+      &:focus {
+        transform: scale(1.2);
+        outline: none;
+      }
+    }
+  }
+
+  &__details {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    &__title {
+      font-size: 2.2rem;
+      font-weight: bold;
+      margin: 0.5rem 0;
+      color: darken($text-color, 10%);
+    }
+
+    &__date {
+      font-size: 0.9rem;
+      color: lighten($text-color, 30%);
+    }
+
+    &__like-count {
+      font-size: 1rem;
+      color: $secondary-color;
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+  }
+
+  &__content {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: darken($text-color, 10%);
+    background-color: white;
+    border-radius: $border-radius;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+  }
+}
