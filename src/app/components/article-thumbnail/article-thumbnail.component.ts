@@ -12,13 +12,9 @@ import { RouterLink } from '@angular/router';
 })
 export class ArticleThumbnailComponent {
   @Input() article!: Article;
-  @Output() notifyLike = new EventEmitter<boolean>();
+  @Output() notifyLike: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   sendNotification() {
-    // Toggle the like status
-    this.article.isLiked = !this.article.isLiked;
-
-    // Emit the new like status to the parent component
     this.notifyLike.emit(this.article.isLiked);
   }
 }
