@@ -19,7 +19,7 @@ export class ArticleListComponent implements OnInit {
   private readonly apiService = inject(ApiService);
   
   ngOnInit() {
-      this.articles$ = this.apiService.getArticles();
+      this.articles$ = this.apiService.getArticles$();
   }
 
   handleLike(article: Article) {

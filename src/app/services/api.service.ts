@@ -14,7 +14,7 @@ export class ApiService {
   // Injection de HttpClient via le constructeur
   constructor(private readonly http: HttpClient) {}
 
-  public getArticles(): Observable<Article[]> {
+  public getArticles$(): Observable<Article[]> {
     return this.http.get<Article[]>(this.apiUrl).pipe(
       map((articles) => {
         this.articles = articles;
@@ -23,7 +23,7 @@ export class ApiService {
     );
   }
 
-  public getArticleById(id: number): Observable<Article> {
+  public getArticleById$(id: number): Observable<Article> {
     return this.http.get<Article>(`${this.apiUrl}/${id}`);
   }
 }

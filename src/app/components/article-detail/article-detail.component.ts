@@ -16,19 +16,19 @@ export class ArticleDetailComponent implements OnInit {
   private readonly apiService = inject(ApiService);
 
   articleId!: number;
-  article!: Article;
+  article$!: Article;
 
   handleLike() {
-    this.article.isLiked = !this.article.isLiked;
+    this.article$.isLiked = !this.article$.isLiked;
   }
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.articleId = Number(params.get('id'));
       if (this.articleId) {
-        this.apiService.getArticleById(this.articleId).subscribe({
+        this.apiService.getArticleById$(this.articleId).subscribe({
           next: (article) => {
-            this.article = article;
+            this.article$ = article;
           },
           error: (error) => {
             console.error('Erreur lors de la récupération de l\'article:', error);
